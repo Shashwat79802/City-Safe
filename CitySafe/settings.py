@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'CrimeMapper.apps.CrimemapperConfig',
     'django.contrib.gis',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,10 +84,19 @@ DATABASES = {
         'NAME': 'citysafe',
         'USER': 'postgres',
         'PASSWORD': 'shashwat',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'HOST': '34.131.144.100',
+        # 'HOST': 'localhost',
+        'PORT': '5432',
+
     }
 }
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:5000",
+]
 
 
 # Password validation
