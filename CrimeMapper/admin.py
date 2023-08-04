@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CityList, CrimeCoordinate, CrimeDataYear
+from .models import CityList, CrimeCoordinate, CrimeDataYear, HeatMapData
 
 
 @admin.register(CityList)
@@ -18,4 +18,10 @@ class CrimeCoordinateAdmin(admin.ModelAdmin):
 @admin.register(CrimeDataYear)
 class CrimeDataYearAdmin(admin.ModelAdmin):
     list_display = ('id', 'year')
+    ordering = ['id']
+
+
+@admin.register(HeatMapData)
+class HeatmapDataAdmin(admin.ModelAdmin):
+    list_display = ('id', 'city', 'data')
     ordering = ['id']

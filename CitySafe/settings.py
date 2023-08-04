@@ -43,6 +43,14 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,8 +92,8 @@ DATABASES = {
         'NAME': 'citysafe',
         'USER': 'postgres',
         'PASSWORD': 'shashwat',
-        'HOST': '34.131.144.100',
-        # 'HOST': 'localhost',
+        # 'HOST': '34.131.144.100',
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }

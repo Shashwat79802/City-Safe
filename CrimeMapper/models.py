@@ -37,3 +37,11 @@ class CrimeCoordinate(models.Model):
 
     def __str__(self):
         return f"{self.murder_assault}, {self.kidnapping_abduction}, {self.sexual_assault}, {self.riot}, {self.theft_burglary}, {self.accident_prone_areas}"
+    
+
+class HeatMapData(models.Model):
+    city = models.ForeignKey(CityList, on_delete=models.PROTECT)
+    data = models.JSONField("Heatmap Data")
+
+    def __str__(self):
+        return f"{self.city.city_name}, {self.data}"
